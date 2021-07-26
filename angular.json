@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "projects": {
+    "bookstack": {
+      "projectType": "application",
+      "root": "apps/bookstack",
+      "sourceRoot": "apps/bookstack/src",
+      "prefix": "bookstack",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/bookstack",
+            "index": "apps/bookstack/src/index.html",
+            "main": "apps/bookstack/src/main.ts",
+            "polyfills": "apps/bookstack/src/polyfills.ts",
+            "tsConfig": "apps/bookstack/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/bookstack/src/favicon.ico",
+              "apps/bookstack/src/assets"
+            ],
+            "styles": ["apps/bookstack/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/bookstack/src/environments/environment.ts",
+                  "with": "apps/bookstack/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "bookstack:build:production"
+            },
+            "development": {
+              "browserTarget": "bookstack:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bookstack:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/bookstack/src/**/*.ts",
+              "apps/bookstack/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/bookstack"],
+          "options": {
+            "jestConfig": "apps/bookstack/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "bookstack-e2e": {
+      "root": "apps/bookstack-e2e",
+      "sourceRoot": "apps/bookstack-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/bookstack-e2e/cypress.json",
+            "tsConfig": "apps/bookstack-e2e/tsconfig.e2e.json",
+            "devServerTarget": "bookstack:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bookstack:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/bookstack-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "bookstack"
+}

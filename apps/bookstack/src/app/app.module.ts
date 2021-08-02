@@ -4,8 +4,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from '@bookstack/layout';
 
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ],
   imports: [
     BrowserModule,
     AppRoutingModule,

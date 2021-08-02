@@ -33,6 +33,9 @@
     "bookstack-e2e": {
       "tags": [],
       "implicitDependencies": ["bookstack"]
+    },
+    "layout": {
+      "tags": []
     }
   }
 }

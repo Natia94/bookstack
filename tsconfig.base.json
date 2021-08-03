@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bookstack/layout": ["libs/layout/src/index.ts"]
+      "@bookstack/components/natia": ["libs/components/natia/src/index.ts"],
+      "@bookstack/header": ["libs/header/src/index.ts"],
+      "@bookstack/layout": ["libs/layout/src/index.ts"],
+      "@bookstack/nini": ["libs/nini/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

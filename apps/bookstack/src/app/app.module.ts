@@ -6,11 +6,11 @@ import { LayoutModule } from '@bookstack/layout';
 
 
 @NgModule({
-  declarations: [AppComponent, ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],

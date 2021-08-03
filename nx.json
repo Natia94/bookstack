@@ -34,7 +34,16 @@
       "tags": [],
       "implicitDependencies": ["bookstack"]
     },
+    "components-natia": {
+      "tags": []
+    },
+    "header": {
+      "tags": []
+    },
     "layout": {
+      "tags": []
+    },
+    "nini": {
       "tags": []
     }
   }

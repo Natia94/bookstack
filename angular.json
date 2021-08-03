@@ -120,6 +120,56 @@
         }
       }
     },
+    "components-natia": {
+      "projectType": "library",
+      "root": "libs/components/natia",
+      "sourceRoot": "libs/components/natia/src",
+      "prefix": "bookstack",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/natia"],
+          "options": {
+            "jestConfig": "libs/components/natia/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/natia/src/**/*.ts",
+              "libs/components/natia/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "header": {
+      "projectType": "library",
+      "root": "libs/header",
+      "sourceRoot": "libs/header/src",
+      "prefix": "bookstack",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/header"],
+          "options": {
+            "jestConfig": "libs/header/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/header/src/**/*.ts",
+              "libs/header/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "layout": {
       "projectType": "library",
       "root": "libs/layout",
@@ -140,6 +190,31 @@
             "lintFilePatterns": [
               "libs/layout/src/**/*.ts",
               "libs/layout/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "nini": {
+      "projectType": "library",
+      "root": "libs/nini",
+      "sourceRoot": "libs/nini/src",
+      "prefix": "bookstack",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/nini"],
+          "options": {
+            "jestConfig": "libs/nini/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/nini/src/**/*.ts",
+              "libs/nini/src/**/*.html"
             ]
           }
         }
